@@ -4,7 +4,7 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { IoLogoGithub } from "react-icons/io5";
 import { LuSearch } from "react-icons/lu";
 
-const Navbar = () => {
+const Header = () => {
   return (
     <nav className="w-full">
       <div className="flex justify-between items-center gap-[30px] w-full px-[20px] h-[56px] bg-slate-purple">
@@ -88,4 +88,4 @@ const SearchButton = () => {
   );
 };
 
-export default Navbar;
+export default Header;
