@@ -3,12 +3,14 @@ import React from 'react'
 const Navbar = () => {
   return (
     <nav>
-        <div>
-            <div>
+        <div className='w-full max-w-[300px] pt-[57px]'>
+            <div className='bg-slate-purple px-4 pt-4'>
                 <ul>
                     <li>
-                        <details>
-                            <summary></summary>
+                        <details >
+                            <summary className='text-white'>
+                                <span>About</span>
+                            </summary>
                             <ul>
                                 <li>
                                     <a href="#">

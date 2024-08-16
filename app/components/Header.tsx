@@ -6,7 +6,7 @@ import { LuSearch } from "react-icons/lu";
 
 const Header = () => {
   return (
-    <nav className="w-full">
+    <nav className="fixed w-full">
       <div className="flex justify-between items-center gap-[30px] w-full px-[20px] h-[56px] bg-dark-purple">
         <div
           // onClick={props.handleClick}
