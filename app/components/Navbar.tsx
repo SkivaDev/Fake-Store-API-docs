@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { IoLogoGithub } from "react-icons/io5";
+import { LuSearch } from "react-icons/lu";
 
 const Navbar = () => {
   return (
@@ -18,7 +19,7 @@ const Navbar = () => {
               />
             </div>
 
-            <div className="text-[24px] text-lavender-gray">
+            <div className="text-[24px] text-lavender-gray font-medium">
               <mark className="bg-transparent font-bold text-white">Skiva</mark>
               .shop API
             </div>
@@ -28,22 +29,25 @@ const Navbar = () => {
         <div className="grow flex justify-end">
           <button
             type="button"
-            className="w-full max-w-[300px] border border-white"
+            className="flex justify-between items-center w-full max-w-[250px] h-[36px] px-[8px] bg-search-dark rounded-[8px] border border-white"
           >
-            <div>
-              <div>
-                <Image src="" alt="" />
-              </div>
-              Search
-            </div>
-            <div>
+            <span className="flex items-center gap-[5px]">
+              <span className="text-[22px]">
+                <LuSearch />
+              </span>
+              <span className="text-placehold-search font-medium">Search</span>
+            </span>
+            <span>
               <Image src="" alt="" />
-            </div>
+            </span>
           </button>
         </div>
 
         <div className="flex gap-[15px]">
-          <a href="" className="w-8 h-8 text-[24px] flex justify-center items-center">
+          <a
+            href=""
+            className="w-8 h-8 text-[24px] flex justify-center items-center"
+          >
             <IoLogoGithub />
           </a>
 

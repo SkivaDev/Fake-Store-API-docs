@@ -28,7 +28,9 @@ const config: Config = {
         "slate-purple": "#322f69",
         "stormy-blue": "#364669",
         "royal-purple": "#413e87",
-        "bright-orange": "#febe49"
+        "bright-orange": "#febe49",
+        "placehold-search": "#7f8497",
+        "search-dark": "#3A3A3A"
       },
       colors: {
         "black": "#000000",
@@ -45,7 +47,9 @@ const config: Config = {
         "slate-purple": "#322f69",
         "stormy-blue": "#364669",
         "royal-purple": "#413e87",
-        "bright-orange": "#febe49"
+        "bright-orange": "#febe49",
+        "placehold-search": "#7f8497",
+        "search-dark": "#3A3A3A"
       },
       borderColor: {
         "light-border": "rgb(30, 41, 59)"
