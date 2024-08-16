@@ -46,7 +46,10 @@ const config: Config = {
         "stormy-blue": "#364669",
         "royal-purple": "#413e87",
         "bright-orange": "#febe49"
-      }
+      },
+      borderColor: {
+        "light-border": "rgb(30, 41, 59)"
+       }
     },
   },
   plugins: [],

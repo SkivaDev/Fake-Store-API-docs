@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { IoLogoGithub } from "react-icons/io5";
 
 const Navbar = () => {
   return (
@@ -8,17 +10,26 @@ const Navbar = () => {
         <div>
           <a href="" className="flex justify-center items-center gap-[15px]">
             <div>
-              <Image src="/images/store-logo.png" alt="store-logo" width={45} height={45}/>
+              <Image
+                src="/images/store-logo.png"
+                alt="store-logo"
+                width={45}
+                height={45}
+              />
             </div>
 
             <div className="text-[24px] text-lavender-gray">
-              <mark className="bg-transparent font-bold text-white">Skiva</mark>.shop API
+              <mark className="bg-transparent font-bold text-white">Skiva</mark>
+              .shop API
             </div>
           </a>
         </div>
 
         <div className="grow flex justify-end">
-          <button type="button" className="w-full max-w-[300px] border border-white">
+          <button
+            type="button"
+            className="w-full max-w-[300px] border border-white"
+          >
             <div>
               <div>
                 <Image src="" alt="" />
@@ -31,16 +42,19 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className="flex">
-          <a href="">
-            i
-            <Image src="" alt="" />
+        <div className="flex gap-[15px]">
+          <a href="" className="w-8 h-8 text-[24px] flex justify-center items-center">
+            <IoLogoGithub />
           </a>
 
-          <button type="button">
-            o
-            <Image src="" alt="" />
-          </button>
+          <div className="pl-[15px] border-l border-light-gray max-h-8">
+            <button
+              type="button"
+              className="w-8 h-8 text-[24px] flex justify-center items-center"
+            >
+              <MdOutlineDarkMode />
+            </button>
+          </div>
         </div>
       </div>
     </nav>
