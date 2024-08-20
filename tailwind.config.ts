@@ -52,11 +52,15 @@ const config: Config = {
         "placehold-search": "#7f8497",
         "search-dark": "#3A3A3A",
         "emphasis-200": "#444950",
+        "nav-purple": "#b7b5dd"
       },
       borderColor: {
         "light-border": "rgb(30, 41, 59)",
         "lavender-gray": "#9391cc",
       },
+      transitionProperty: {
+        'max-height': 'max-height',
+      }
     },
   },
   plugins: [],
