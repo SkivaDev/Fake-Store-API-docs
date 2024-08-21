@@ -1,5 +1,6 @@
 "use client";
 
+import { title } from "process";
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -8,6 +9,7 @@ const Navbar = () => {
   const [openDetails, setOpenDetails] = useState<{ [key: number]: boolean }>({
     1: true,
     2: true,
+    3: true
   });
 
   // Función para alternar el estado de apertura/cierre
@@ -24,8 +26,13 @@ const Navbar = () => {
     {
       id: 2,
       title: "REST API",
-      items: ["Products", "Filter products"],
+      items: ["Products", "Filter products", "Categories", "Users", "Auth JWT"],
     },
+    {
+      id: 3,
+      title: "Resources",
+      items: ["Postman", "Insomnia"]
+    }
   ];
 
   return (
@@ -80,7 +87,7 @@ const Detail = ({
       </summary>
       <ul
         className={`mt-[4px] overflow-hidden transition-max-height duration-[350ms] ${
-          isOpen ? "max-h-[100px]" : "max-h-0"
+          isOpen ? "max-h-[180px]" : "max-h-0"
         }`}
       >
         {items.map((item, index) => (
