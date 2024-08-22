@@ -69,9 +69,9 @@ body {
   content: "";
   background: #0b101f;
   border: 2px solid #3d3d41;
-  left: -3px;
-  width: 7px;
-  height: 7px;
+  left: -4px;
+  width: 10px;
+  height: 10px;
   top: 50%;
   display: inline-block;
   position: absolute;
