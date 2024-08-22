@@ -36,8 +36,8 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed z-40 w-full">
-      <div className="w-full max-w-[300px] h-screen pt-[57px]">
+    <nav className="fixed z-40">
+      <div className="w-[300px] h-screen pt-[57px]">
         <div className="w-full h-full bg-deep-blue px-4 pt-4">
           <ul>
             {details.map((detail) => (
