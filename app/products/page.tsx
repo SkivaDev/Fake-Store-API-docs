@@ -11,8 +11,20 @@ const ProductsPage = () => {
           </div>
         </div>
         <div className="mt-[1px] p-[24px] w-full">
-          <div className="ml-auto w-full max-w-[900px]">main content</div>
-          <footer>footer</footer>
+          <div className="ml-auto w-full max-w-[900px]">
+            <div>
+              <h2 className="text-[35px] font-semibold">Get all products</h2>
+
+              <p>
+                You can access the list of 200 products by using the{" "}
+                <code dir="auto">/products</code>{" "}
+                endpoint.
+              </p>
+
+              <p>Request:</p>
+            </div>
+            <footer>footer</footer>
+          </div>
         </div>
       </main>
       <RightSidebar />
