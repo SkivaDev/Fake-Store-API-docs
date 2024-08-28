@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        IBM_Plex: ["IBM Plex Sans", "sans-serif"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -23,6 +26,7 @@ const config: Config = {
         "pale-cyan": "#a8e1ea",
         "indigo-black": "#110d25",
         "light-gray": "#abb1b8",
+        "medium-gray": "#d7d7db",
         "dark-purple": "#1b173a",
         "deep-purple": "#25224f",
         "slate-purple": "#322f69",
@@ -32,6 +36,7 @@ const config: Config = {
         "placehold-search": "#7f8497",
         "search-dark": "#3A3A3A",
         "emphasis-200": "#444950",
+        "pre-background": "#23262f",
       },
       colors: {
         "black": "#000000",
@@ -43,6 +48,7 @@ const config: Config = {
         "pale-cyan": "#a8e1ea",
         "indigo-black": "#110d25",
         "light-gray": "#abb1b8",
+        "medium-gray": "#d7d7db",
         "dark-purple": "#1b173a",
         "deep-purple": "#25224f",
         "slate-purple": "#322f69",
