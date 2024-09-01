@@ -1,15 +1,19 @@
-import Image from "next/image";
-import RightSidebar from "./components/RightSidebar";
+import Link from 'next/link';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24 order-1 w-full xl:max-w-[75%] ">
-        <div>
-          a
-        </div>
-      </main>
-      <RightSidebar />
-    </>
+    <main className="flex h-screen flex-col justify-center text-center">
+      <h1 className="mb-4 text-2xl font-bold">Hello World</h1>
+      <p className="text-fd-muted-foreground">
+        You can open{' '}
+        <Link
+          href="/docs"
+          className="text-fd-foreground font-semibold underline"
+        >
+          /docs
+        </Link>{' '}
+        and see the documentation.
+      </p>
+    </main>
   );
 }

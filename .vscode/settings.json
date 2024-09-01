@@ -1,10 +1,5 @@
 {
     "conventionalCommits.scopes": [
-        "project",
-        "Navbar",
-        "Header",
-        "main page",
-        "RightSidebar",
-        "products"
+        "project"
     ]
 }
