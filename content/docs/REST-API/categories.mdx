@@ -1,0 +1,119 @@
+---
+title: Categorías
+---
+
+## Obtener todas las categorías
+
+Puedes acceder a la lista de 5 categorías usando el endpoint `/categories`.
+
+Request:
+
+```
+[GET] https://localhost:3000/api/categories
+```
+
+Response:
+
+```json
+[
+    {
+        "id": 1,
+        "name": "Groceries",
+        "image": "https://i.ibb.co/1QzkGf7/Comestible.png",
+        "description": "Productos relacionados con comestibles para la casa.",
+        "createdAt": "2024-02-10T20:28:52.506Z",
+        "updatedAt": "2024-02-10T20:28:52.506Z"
+    },
+
+    // ...
+
+    {
+        "id": 5,
+        "name": "Electronics",
+        "image": "https://i.ibb.co/1QzkGf7/Electronica.png",
+        "description": "Productos relacionados con dispositivos electrónicos, como smartphones, televisores, computadoras y más.",
+        "createdAt": "2024-02-10T20:28:52.506Z",
+        "updatedAt": "2024-02-10T20:28:52.506Z"
+    },
+]
+```
+
+## Obtener una categoría (por ID)
+
+Puedes obtener una categoría por su `id` usando el endpoint `/categories/{id}`
+
+Request:
+
+```sh
+[GET] https://localhost:3000/api/categories/5
+```
+
+Response:
+
+```json
+{
+    "id": 5,
+    "name": "Salud y Belleza",
+    "image": "https://i.ibb.co/1QzkGf7/Salud-y-belleza.png",
+    "description": "Productos para el cuidado personal y bienestar, incluyendo cosméticos, productos de higiene, suplementos y equipos de fitness.",
+    "createdAt": "2024-02-10T20:28:52.506Z",
+    "updatedAt": "2024-02-10T20:28:52.506Z"
+}
+```
+
+## Crear una categoría
+
+Puedes crear una nueva categoría enviando un objeto como el siguiente a `/categories/create`
+
+Request:
+
+```sh
+[POST] https://localhost:3000/api/categories
+# Body
+{
+  "name": "Salud y Belleza",
+  "description": "Productos para el cuidado personal y bienestar, incluyendo cosméticos, productos de higiene, suplementos y equipos de fitness.",
+  "image": "https://i.ibb.co/ZSsFGNL/Salud-y-belleza.png"
+}
+
+```
+
+Response:
+
+```json
+{
+    "id": 5,
+    "name": "Salud y Belleza",
+    "image": "https://i.ibb.co/ZSsFGNL/Salud-y-belleza.png",
+    "description": "Productos para el cuidado personal y bienestar, incluyendo cosméticos, productos de higiene, suplementos y equipos de fitness.",
+    "createdAt": "2024-02-10T20:28:52.506Z",
+    "updatedAt": "2024-03-10T20:28:52.506Z"
+}
+```
+
+## Editar una categoría
+
+Puedes editar una categoría existente enviando un objeto como el siguiente a `/categories/{id}`
+
+Request:
+
+```sh
+[DELETE] https://localhost:3000/api/categories/5
+```
+
+Response:
+
+```json
+true
+```
+
+## Modelo de datos
+
+| Atributo    | Tipo   | Descripción                    |
+| ----------- | ------ | ------------------------------ |
+| id          | Number | El id de la categoría          |
+| name        | String | El nombre de la categoría      |
+| image       | String | La imagen de la categoría      |
+| description | String | La descripción de la categoría |
+| created_at  | Datetime | La fecha de creación de la categoría.|
+| updated_at  | Datetime | La fecha de actualización de la categoría.|

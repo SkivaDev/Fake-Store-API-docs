@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "project",
         "products",
-        "filter-products"
+        "filter-products",
+        "categories"
     ]
 }
