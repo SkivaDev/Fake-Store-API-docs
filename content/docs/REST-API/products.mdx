@@ -4,58 +4,40 @@ title: Products
 
 ## Obtener todos los productos
 
-Puedes acceder a la lista de 50 productos usando el endpoint `/products`.
+Puedes acceder a la lista de 30 productos usando el endpoint `/products`.
 
 Request:
 
 ```sh
-[GET] https://localhost:3000/api/products/all
+[GET] https://localhost:3000/api/products
 ```
 
 Response:
 
 ```json
-{
-  "content": [
-    {
-      "id": 1,
-      "name": "Portátil Apple MacBook Pro",
-      "description": "Portátil de alto rendimiento con pantalla Retina de 13 pulgadas, chip Apple M1, 8 GB de RAM y 256 GB de SSD.",
-      "price": 1299.99,
-      "stockQuantity": 75,
-      "categoryName": "Electrónica",
-      "imageUrl": "https://i.ibb.co/cDj3dpX/Apple-Mac-Book-Pro.png",
-      "createdAt": "2023-12-29",
-      "updatedAt": "2023-12-29"
-    },
-    // ...
-    ]
-"pageable": {
-    "pageNumber": 0,
-    "pageSize": 5,
-    "sort": {
-      "empty": true,
-      "sorted": false,
-      "unsorted": true
-    },
-    "offset": 0,
-    "paged": true,
-    "unpaged": false
-  },
-  "totalPages": 10,
-  "totalElements": 50,
-  "last": false,
-  "size": 5,
-  "number": 0,
-  "sort": {
-    "empty": true,
-    "sorted": false,
-    "unsorted": true
-  },
-  "numberOfElements": 5,
-  "first": true,
-  "empty": false
-}
+[
+  {
+    "id": 1,
+    "name": "Portátil Asus TUF Gaming",
+    "price": 3599.99,
+    "description": "Portátil con diseño elegante en color gris y una batería de ion de litio de larga duración.",
+    "images": [
+      "https://i5.walmartimages.com/asr/c89a91d8-d81a-452c-9826-6e232b6d1f97_1.507a5956bdf52ad2737757214fcbf86f.jpeg"
+    ],
+    "creationAt": "2024-03-05T16:01:19.469Z",
+    "updatedAt": "2024-03-05T16:01:19.469Z",
+    "category": {
+      "id": 3,
+      "name": "Electronics",
+      "description": "Los mejores productos electricos del mercado",
+      "image": "https://i.imgur.com/ZANVnHE.jpeg",
+      "createdAt": "2024-02-10T20:36:51.953Z",
+      "updatedAt": "2024-02-10T20:36:51.953Z"
+    }
+  }
+
+  // ...
+]
 ```
 
 ## Obtener un producto (por ID)
@@ -73,33 +55,40 @@ Response:
 ```json
 {
   "id": 4,
-  "name": "Consola PlayStation 5",
-  "description": "Consola de juegos de última generación con gráficos en 4K, SSD ultrarrápido y retrocompatibilidad con juegos de PS4.",
-  "price": 499.99,
-  "stockQuantity": 100,
-  "categoryName": "Electrónica",
-  "imageUrl": "https://i.ibb.co/BcqzzgF/Consola-Play-Station-5.png",
-  "createdAt": "2023-12-29",
-  "updatedAt": "2023-12-29"
+  "name": "Apple iPhone 15",
+  "price": 3.849,
+  "description": "Dynamic Island, cámara gran angular de 48 MP, entrada USB-C y un resistente vidrio con infusión de color en un diseño de aluminio.",
+  "images": ["https://pintres.com/640/480/any?iphone=0.9178516507833767"],
+  "creationAt": "2024-03-04T16:05:17.469Z",
+  "updatedAt": "2024-03-04T16:05:17.469Z",
+  "category": {
+    "id": 3,
+    "name": "Electronics",
+    "description": "Los mejores productos electricos del mercado",
+    "image": "https://i.imgur.com/ZANVnHE.jpeg",
+    "createdAt": "2024-02-10T20:36:51.953Z",
+    "updatedAt": "2024-02-10T20:36:51.953Z"
+  }
 }
 ```
 
 ## Crear un producto
 
-Puedes crear un nuevo producto enviando un objeto como el siguiente a `/products/create`
+Puedes crear un nuevo producto enviando un objeto como el siguiente a `/products/`
 
 Request:
 
 ```sh
-[POST] https://localhost:3000/api/products/create
+[POST] https://localhost:3000/api/products
 # Body
 {
-  "name": "Portátil Apple MacBook Pro",
-  "description": "Portátil de alto rendimiento con pantalla Retina de 13 pulgadas, chip Apple M1, 8 GB de RAM y 256 GB de SSD.",
-  "price": 1299.99,
-  "stockQuantity": 75,
-  "categoryId": 1,
-  "imageUrl": "https://i.ibb.co/cDj3dpX/Apple-Mac-Book-Pro.png"
+  "name": "Portátil Asus TUF Gaming",
+  "price": 3599.99,
+  "description": "Portátil con diseño elegante en color gris y una batería de ion de litio de larga duración.",
+  "images": [
+    "https://i5.walmartimages.com/asr/c89a91d8-d81a-452c-9826-6e232b6d1f97_1.507a5956bdf52ad2737757214fcbf86f.jpeg"
+  ],
+  "categoryId": 3
 }
 ```
 
@@ -108,63 +97,83 @@ Response:
 ```json
 {
   "id": 1,
-  "name": "Portátil Apple MacBook Pro",
-  "description": "Portátil de alto rendimiento con pantalla Retina de 13 pulgadas, chip Apple M1, 8 GB de RAM y 256 GB de SSD.",
-  "price": 1299.99,
-  "stockQuantity": 75,
-  "categoryName": "Electrónica",
-  "imageUrl": "https://i.ibb.co/cDj3dpX/Apple-Mac-Book-Pro.png",
-  "createdAt": "2023-12-29",
-  "updatedAt": "2023-12-29"
+  "name": "Portátil Asus TUF Gaming",
+  "price": 3599.99,
+  "description": "Portátil con diseño elegante en color gris y una batería de ion de litio de larga duración.",
+  "images": [
+    "https://i5.walmartimages.com/asr/c89a91d8-d81a-452c-9826-6e232b6d1f97_1.507a5956bdf52ad2737757214fcbf86f.jpeg"
+  ],
+  "creationAt": "2024-03-05T16:01:19.469Z",
+  "updatedAt": "2024-03-05T16:01:19.469Z",
+  "category": {
+    "id": 3,
+    "name": "Electronics",
+    "description": "Los mejores productos electricos del mercado",
+    "image": "https://i.imgur.com/ZANVnHE.jpeg",
+    "createdAt": "2024-02-10T20:36:51.953Z",
+    "updatedAt": "2024-02-10T20:36:51.953Z"
+  }
 }
 ```
 
-> Nota que el `categoryId` debe ser un ID que exista en `/categories` y la imagen es una URL válida.
+> Nota que el `categoryId` debe ser un ID que exista en `/categories`.
+
+> Nota que el `images` debe ser un array que contenga URL's validas con las extensiones `(png, jpg, jpeg)`.
 
 ## Actualizar un producto
 
-Puedes actualizar un producto enviando un objeto como el siguiente y agregando el `id` como parámetro: `/products/update/<id>`
+Puedes actualizar un producto enviando un objeto como el siguiente y agregando el `id` como parámetro: `/products/<id>`
 
 Request:
 
 ```sh
-[PUT] https://localhost:3000/api/products/update/50
+[PUT] https://localhost:3000/api/products/15
 # Body
 {
-  "name": "Altavoz Bluetooth Portátil",
-  "description": "Altavoz Bluetooth compacto y portátil con excelente calidad de sonido y resistencia al agua, ideal para llevarlo a cualquier parte.",
-  "price": 99.99,
-  "stockQuantity": 75,
-  "categoryId": 10,
-  "imageUrl": "https://i.ibb.co/LPYY3vD/Altavoz-Bluetooth-Port-til.png"
+  "name": "Smartphone",
+  "price": 800,
+  "description": "Teléfono inteligente con pantalla AMOLED y cámara de alta resolución.",
+  "images": [
+    "https://i.imgur.com/smartphone1.jpeg",
+    "https://upload.wikimedia.org/wikipedia/commons/6/65/smartphone2.jpg"
+  ],
+  "categoryId": 3
 }
-
 ```
 
 Response:
 
 ```json
 {
-  "id": 50,
-  "name": "Altavoz Bluetooth Portátil",
-  "description": "Altavoz Bluetooth compacto y portátil con excelente calidad de sonido y resistencia al agua, ideal para llevarlo a cualquier parte.",
-  "price": 99.99,
-  "stockQuantity": 75,
-  "categoryName": "Otros",
-  "imageUrl": "https://i.ibb.co/LPYY3vD/Altavoz-Bluetooth-Port-til.png",
-  "createdAt": "2023-12-29",
-  "updatedAt": "2023-12-29"
+  "id": 15,
+  "name": "Smartphone",
+  "price": 800,
+  "description": "Teléfono inteligente con pantalla AMOLED y cámara de alta resolución.",
+  "images": [
+    "https://i.imgur.com/smartphone1.jpeg",
+    "https://upload.wikimedia.org/wikipedia/commons/6/65/smartphone2.jpg"
+  ],
+  "creationAt": "2024-04-11T14:50:06.527Z",
+  "updatedAt": "2024-05-05T16:52:46.727Z",
+  "category": {
+    "id": 3,
+    "name": "Electronics",
+    "description": "Los mejores productos electricos del mercado",
+    "image": "https://i.imgur.com/ZANVnHE.jpeg",
+    "createdAt": "2024-02-10T20:36:51.953Z",
+    "updatedAt": "2024-02-10T20:36:51.953Z"
+  }
 }
 ```
 
 ## Eliminar un producto
 
-Puedes eliminar un producto agregando el `id` como parámetro: `/products/delete/<id>`
+Puedes eliminar un producto agregando el `id` como parámetro: `/products/<id>`
 
 Request:
 
 ```sh
-[DELETE] https://localhost:3000/api/products/delete/50
+[DELETE] https://localhost:3000/api/products/20
 ```
 
 Response:
@@ -173,143 +182,127 @@ Response:
 true
 ```
 
-> Tenga en cuenta que algunos productos han sido comprados por usuarios, y al eliminarlos, se eliminarán también los pedidos asociados a ellos
+> Tenga en cuenta que algunas imagenes han sido han sido asignados a ciertos productos, y al eliminarlos, se eliminarán también las imagenes asociadas a ellos.
 
-> Pronto se agregará la funcionalidad de desactivar productos en lugar de eliminarlos.
 
 ## Paginación
 
-En este proyecto, se utiliza un enfoque avanzado y detallado de paginación en las API desarrolladas con Java y Spring Boot. A diferencia de las API estándar que emplean paginación basada en offset, esta implementación ofrece una estructura de respuesta más rica y personalizable.
+Las APIs que utilizan la paginación basada en offset utilizan los parámetros de consulta offset y limit para paginar a través de los elementos de una colección.
 
-La paginación se basa en parámetros como `pageNumber` y `pageSize`, pero se amplía al incluir detalles adicionales en la respuesta. Cada respuesta de paginación contiene un objeto `pageable` que proporciona información vital, como el número actual de página (`pageNumber`), el tamaño de la página (`pageSize`), y detalles sobre la ordenación (`sort`). Esto indica si la lista está ordenada o no y la dirección de la ordenación.
+La paginación basada en desplazamiento se utiliza a menudo cuando la lista de elementos tiene una longitud fija y predeterminada.
 
-Además, se ofrece información completa sobre el conjunto total de datos, como el número total de páginas (`totalPages`) y el total de elementos (`totalElements`). Esto permite a los usuarios comprender el contexto completo del conjunto de datos que están navegando.
-
-La respuesta también indica si la página actual es la primera (`first`) o la última (`last`), y proporciona el número de elementos en la página actual (`numberOfElements`). Esto es especialmente útil para interfaces de usuario donde los usuarios pueden necesitar saber si hay más datos para cargar.
+Para obtener la primera página de entradas de una colección, es necesario llamar a la API con el valor 0 de `offset` y el valor 0 de `limit` de los productos que desea que aparezcan en la respuesta.
 
 Request:
 
 ```sh
-[GET] https://localhost:3000/api/products/all?size=2&page=1
+[GET] https://localhost:3000/api/products?offset=0&limit=10
 ```
 
 Response:
 
 ```json
-{
-  "content": [
-    {
+[
+  {
+    "id": 1,
+    "name": "Portátil Asus TUF Gaming",
+    "price": 3599.99,
+    "description": "Portátil con diseño elegante en color gris y una batería de ion de litio de larga duración.",
+    "images": [
+      "https://i5.walmartimages.com/asr/c89a91d8-d81a-452c-9826-6e232b6d1f97_1.507a5956bdf52ad2737757214fcbf86f.jpeg"
+    ],
+    "creationAt": "2024-03-05T16:01:19.469Z",
+    "updatedAt": "2024-03-05T16:01:19.469Z",
+    "category": {
       "id": 3,
-      "name": "Cámara Sony Alpha A7 III",
-      "description": "Cámara mirrorless con sensor full-frame de 24.2 MP, grabación de vídeo 4K HDR y sistema de enfoque automático rápido.",
-      "price": 1999.99,
-      "stockQuantity": 30,
-      "categoryName": "Electrónica",
-      "imageUrl": "https://i.ibb.co/ZHT2r1s/C-mara-Sony-Alpha-A7-III.png",
-      "createdAt": "2023-12-29",
-      "updatedAt": "2023-12-29"
-    },
-    {
-      "id": 4,
-      "name": "Consola PlayStation 5",
-      "description": "Consola de juegos de última generación con gráficos en 4K, SSD ultrarrápido y retrocompatibilidad con juegos de PS4.",
-      "price": 499.99,
-      "stockQuantity": 100,
-      "categoryName": "Electrónica",
-      "imageUrl": "https://i.ibb.co/BcqzzgF/Consola-Play-Station-5.png",
-      "createdAt": "2023-12-29",
-      "updatedAt": "2023-12-29"
+      "name": "Electronics",
+      "description": "Los mejores productos electricos del mercado",
+      "image": "https://i.imgur.com/ZANVnHE.jpeg",
+      "createdAt": "2024-02-10T20:36:51.953Z",
+      "updatedAt": "2024-02-10T20:36:51.953Z"
     }
-  ],
-  "pageable": {
-    "pageNumber": 1,
-    "pageSize": 2,
-    "sort": {
-      "empty": true,
-      "sorted": false,
-      "unsorted": true
-    },
-    "offset": 2,
-    "paged": true,
-    "unpaged": false
-  },
-  "totalPages": 25,
-  "totalElements": 50,
-  "last": false,
-  "size": 2,
-  "number": 1,
-  "sort": {
-    "empty": true,
-    "sorted": false,
-    "unsorted": true
-  },
-  "numberOfElements": 2,
-  "first": false,
-  "empty": false
-}
+  }
+
+  // ... and 9 items more
+]
 ```
 
 ### Parámetros de paginación
 
-Para obtener una lista de productos paginada, se deben proporcionar los parámetros `page` y `size` en la URL. Por ejemplo, para obtener las primeras 3 paginas de 10 productos cada una, se debe hacer lo siguiente:
+Para obtener una lista de productos paginada, se deben proporcionar los parámetros `offset` y `limit` en la URL. Por ejemplo, para obtener las primeras 3 paginas de 10 productos cada una, se debe hacer lo siguiente:
 
 ```bash
-[GET]  https://localhost:3000/api/products/all?page=0&size=10
-[GET]  https://localhost:3000/api/products/all?page=1&size=10
-[GET]  https://localhost:3000/api/products/all?page=2&size=10
+[GET]  https://localhost:3000/api/products?offset=0&limit=10
+[GET]  https://localhost:3000/api/products?offset=10&limit=10
+[GET]  https://localhost:3000/api/products?offset=20&limit=10
 ```
 
 | Request                          | Descripción                        |
 | -------------------------------- | ---------------------------------- |
-| /products/all?**page=0,size=10** | Retorna los primeros 10 productos. |
-| /products/all?**page=1,size=10** | Retorna los productos del 11 al 20 |
-| /products/all?**page=2,size=10** | Retorna los productos del 21 al 30 |
+| /products?**offset=0,limit=10** | Retorna los primeros 10 productos. |
+| /products?**offset=10,limit=10** | Retorna los productos del 11 al 20 |
+| /products?**offset=20,limit=10** | Retorna los productos del 21 al 30 |
 
 Y para obtener los primeros 20 productos, se debe hacer lo siguiente:
 
 | Request                          | Descripción                        |
 | -------------------------------- | ---------------------------------- |
-| /products/all?**page=0,size=20** | Retorna los primeros 20 productos. |
-| /products/all?**page=1,size=20** | Retorna los productos del 21 al 40 |
-| /products/all?**page=2,size=20** | Retorna los productos del 41 al 60 |
+| /products?**offset=0,limit=20** | Retorna los primeros 20 productos. |
+| /products?**offset=20,limit=20** | Retorna los productos del 21 al 40 |
+| /products?**offset=40,limit=20** | Retorna los productos del 41 al 60 |
 
-### Ordenación
+## Filtrado y Ordenación
 
-La ordenación se puede aplicar a los resultados de la API mediante el parámetro `sort` en la URL. Por ejemplo, para obtener los primeros 10 productos ordenados por nombre, se debe hacer lo siguiente:
+La API permite aplicar filtros y ordenación a los productos obtenidos mediante parámetros en la URL.
+
+
+### Filtrado por Precio
+
+Puedes filtrar productos por un precio específico o por un rango de precios usando los parámetros `price`, `price_min` y  `price_max`.
+
+- **Filtrado por precio exacto**: Para obtener productos con un precio exacto de 100, se usa:
 
 ```bash
-[GET]  https://fake-store-api-2no73ornoa-uc.a.run.app/api/products/all?page=0&size=10&sort=name
+[GET]  https://localhost:3000/api/products?price=100
 ```
+
+- **Filtrado por rango de precios**: Para obtener productos con precios entre 50 y 200, se usa:
+
+```bash
+[GET]  https://localhost:3000/api/products?price_min=50&price_max=200
+```
+
+### Filtrado por Nombre
+
+También puedes buscar productos cuyo nombre contenga una palabra clave usando el parámetro `name`. Por ejemplo, para obtener productos cuyo nombre contenga "camisa", se usa:
+
+```bash
+[GET]  https://localhost:3000/api/products?name=camisa
+```
+
+### Filtrado por Categoría
+
+Si deseas filtrar productos por una categoría específica, usa el parámetro `categoryId`. Por ejemplo, para obtener productos de la categoría con ID 3, se usa:
+
+```bash
+[GET]  https://localhost:3000/api/products?categoryId=3
+```
+
+## Ordenación por Múltiples Campos
+
+La ordenación también se puede aplicar a múltiples campos. Por ejemplo, para ordenar los productos por nombre y luego por precio, se usa:
+
+```bash
+[GET]  https://localhost:3000/api/products?limit=10&offset=0&name=celular&price_max=500
+```
+
 
 | Request                                    | Descripción                                              |
 | ------------------------------------------ | -------------------------------------------------------- |
-| /products/all?**page=0,size=10,sort=name** | Retorna los primeros 10 productos ordenados por nombre.  |
-| /products/all?**page=1,size=10,sort=name** | Retorna los productos del 11 al 20 ordenados por nombre. |
-| /products/all?**page=2,size=10,sort=name** | Retorna los productos del 21 al 30 ordenados por nombre. |
+| /products?**offset=0,limit=10,name=celular,price_max=500** | Retorna los primeros 10 productos filtrados por nombre y precio maximo.  |
+| /products?**offset=10,limit=10,name=celular,price_max=500** | Retorna los productos del 11 al 20 filtrados por nombre y precio maximo. |
+| /products?**offset=20,limit=10,name=celular,price_max=500** | Retorna los productos del 21 al 30 filtrados por nombre y precio maximo.|
 
-La ordenación también se puede aplicar en orden descendente agregando `desc` al parámetro `sort`. Por ejemplo, para obtener los primeros 10 productos ordenados por nombre en orden descendente, se debe hacer lo siguiente:
-
-```bash
-[GET]  https://localhost:3000/api/products/all?page=0&size=10&sort=name,desc
-```
-
-| Request                                         | Descripción                                                                   |
-| ----------------------------------------------- | ----------------------------------------------------------------------------- |
-| /products/all?**page=0,size=10,sort=name,desc** | Retorna los primeros 10 productos ordenados por nombre en orden descendente.  |
-| /products/all?**page=1,size=10,sort=name,desc** | Retorna los productos del 11 al 20 ordenados por nombre en orden descendente. |
-| /products/all?**page=2,size=10,sort=name,desc** | Retorna los productos del 21 al 30 ordenados por nombre en orden descendente. |
-
-La ordenación también se puede aplicar a múltiples campos. Por ejemplo, para obtener los primeros 10 productos ordenados por nombre y precio, se debe hacer lo siguiente:
-
-```bash
-[GET]  https://localhost:3000/api/products/all?page=0&size=10&sort=name,price
-```
-
-| Request                                          | Descripción                                                       |
-| ------------------------------------------------ | ----------------------------------------------------------------- |
-| /products/all?**page=0,size=10,sort=name,price** | Retorna los primeros 10 productos ordenados por nombre y precio.  |
-| /products/all?**page=1,size=10,sort=name,price** | Retorna los productos del 11 al 20 ordenados por nombre y precio. |
-| /products/all?**page=2,size=10,sort=name,price** | Retorna los productos del 21 al 30 ordenados por nombre y precio. |
 
 ## Modelo de datos
 
@@ -319,8 +312,7 @@ La ordenación también se puede aplicar a múltiples campos. Por ejemplo, para 
 | name           | String   | El nombre del producto.                 |
 | description    | String   | La descripción del producto.            |
 | price          | Number   | El precio del producto.                 |
-| stock_quantity | Number   | La cantidad de stock del producto.      |
-| image_url      | String   | La URL de la imagen del producto.       |
+| images         | String[]| La lista de URL's de las imagenes del producto.|
+| category_id    | Number   | El ID de la categoría del producto.     |
 | created_at     | Datetime | La fecha de creación del producto.      |
 | updated_at     | Datetime | La fecha de actualización del producto. |
-| category_id    | Number   | El ID de la categoría del producto.     |
