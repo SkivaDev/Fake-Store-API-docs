@@ -1,0 +1,55 @@
+---
+title: Filtrar Productos
+---
+
+## Filtrar por nombre
+
+Usando el endpoint `/products` y pasando `name` como parámetro de consulta, puedes filtrar los productos por título. 
+
+Request:
+
+```bash
+[GET]  https://localhost:3000/api/products?name=camisa
+```
+## Filtrar por precio
+
+Usando el endpoint `/products` y pasando `price` como parámetro de consulta, puedes filtrar los productos por precio exacto. 
+
+```bash
+[GET]  https://localhost:3000/api/products?price=100
+```
+
+## Filtrar por rango de precios
+
+Usando el endpoint `/products` y pasando `price_min` y  `price_max` como parámetros de consulta, puedes filtrar productos por rango de precios.
+
+Request:
+
+```bash
+[GET]  https://localhost:3000/api/products?price_min=50&price_max=200
+```
+
+## Filtrar por categoría
+
+Usando el endpoint `/products` y pasando `categoryId` como parámetros de consulta, puedes filtrar productos por categoría.
+
+Request:
+
+```bash
+[GET]  https://localhost:3000/api/products?categoryId=3
+```
+
+## Unir filtros
+
+La ordenación también se puede aplicar a múltiples campos. Por ejemplo, para ordenar los productos por nombre y luego por precio, se usa:
+
+Ejemplo: Todos los productos entre 900 y 1000, con el nombre "Generic" y el id de categoría 3.
+
+```bash
+[GET]  https://localhost:3000/api/products?price_min=900&price_max=1000&name=Generic&categoryId=3
+```
+Ejemplo: Todos los productos entre 900 y 1000, y id de categoría 2, con un limit de 10 productos y un offset de 10.
+
+```bash
+[GET]  https://localhost:3000/api/products?offset=10&limit=10&categoryId=2
+```
