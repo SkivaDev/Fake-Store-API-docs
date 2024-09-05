@@ -251,59 +251,6 @@ Y para obtener los primeros 20 productos, se debe hacer lo siguiente:
 | /products?**offset=20,limit=20** | Retorna los productos del 21 al 40 |
 | /products?**offset=40,limit=20** | Retorna los productos del 41 al 60 |
 
-## Filtrado y Ordenación
-
-La API permite aplicar filtros y ordenación a los productos obtenidos mediante parámetros en la URL.
-
-
-### Filtrado por Precio
-
-Puedes filtrar productos por un precio específico o por un rango de precios usando los parámetros `price`, `price_min` y  `price_max`.
-
-- **Filtrado por precio exacto**: Para obtener productos con un precio exacto de 100, se usa:
-
-```bash
-[GET]  https://localhost:3000/api/products?price=100
-```
-
-- **Filtrado por rango de precios**: Para obtener productos con precios entre 50 y 200, se usa:
-
-```bash
-[GET]  https://localhost:3000/api/products?price_min=50&price_max=200
-```
-
-### Filtrado por Nombre
-
-También puedes buscar productos cuyo nombre contenga una palabra clave usando el parámetro `name`. Por ejemplo, para obtener productos cuyo nombre contenga "camisa", se usa:
-
-```bash
-[GET]  https://localhost:3000/api/products?name=camisa
-```
-
-### Filtrado por Categoría
-
-Si deseas filtrar productos por una categoría específica, usa el parámetro `categoryId`. Por ejemplo, para obtener productos de la categoría con ID 3, se usa:
-
-```bash
-[GET]  https://localhost:3000/api/products?categoryId=3
-```
-
-## Ordenación por Múltiples Campos
-
-La ordenación también se puede aplicar a múltiples campos. Por ejemplo, para ordenar los productos por nombre y luego por precio, se usa:
-
-```bash
-[GET]  https://localhost:3000/api/products?limit=10&offset=0&name=celular&price_max=500
-```
-
-
-| Request                                    | Descripción                                              |
-| ------------------------------------------ | -------------------------------------------------------- |
-| /products?**offset=0,limit=10,name=celular,price_max=500** | Retorna los primeros 10 productos filtrados por nombre y precio maximo.  |
-| /products?**offset=10,limit=10,name=celular,price_max=500** | Retorna los productos del 11 al 20 filtrados por nombre y precio maximo. |
-| /products?**offset=20,limit=10,name=celular,price_max=500** | Retorna los productos del 21 al 30 filtrados por nombre y precio maximo.|
-
-
 ## Modelo de datos
 
 | Atributo       | Tipo     | Descripción                             |
