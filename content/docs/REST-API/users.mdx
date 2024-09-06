@@ -1,0 +1,176 @@
+---
+title: Usuarios
+---
+
+## Obtener todos los usuarios
+
+Puedes acceder a la lista de 3 usuarios usando el endpoint `/users`.
+
+Request:
+
+```sh
+[GET] https://localhost:3000/api/users
+```
+
+Response:
+
+```json
+[
+    {
+        "id": "026e9dab-18f6-48ad-af85-c7d3f645bb41",
+        "email": "leonardo@gmail.com",
+        "password": "securePassword321",
+        "name": "Leonardo",
+        "role": "admin",
+        "avatar": "https://cdn-icons-png.freepik.com/512/147/147142.png",
+        "createdAt": "2024-02-22T00:35:00.353Z",
+        "updatedAt": "2024-03-06T16:00:10.890Z"
+    },
+
+    // ...
+]
+```
+
+## Obtener un usuario (por ID)
+
+Puedes obtener un usuario por su `id` usando el endpoint `/users/{id}`
+
+Request:
+
+```sh
+[GET] https://localhost:3000/api/users/4c3e6b4a-6c2b-4b58-91b4-59493f7bbfe6
+```
+
+Response:
+
+```json
+{
+    "id": "4c3e6b4a-6c2b-4b58-91b4-59493f7bbfe6",
+    "email": "fabrizio@gmail.com",
+    "password": "fab_Pass@word",
+    "name": "Fabrizio",
+    "role": "user",
+    "avatar": "https://cdn-icons-png.freepik.com/512/147/147142.png",
+    "createdAt": "2024-04-06T16:46:00.057Z",
+    "updatedAt": "2024-04-06T16:46:00.057Z"
+}
+```
+
+> Nota que el `id` debe ser un ID que exista en `/users` y en formato UUID.
+
+## Crear un usuario
+
+Puedes crear un nuevo usuario enviando un objeto como el siguiente a `/users`
+
+Request:
+
+```sh
+[POST] https://localhost:3000/api/users
+# Body
+{
+	"name": "Medaly",
+	"email": "medaly@gmail.com",
+	"password": "meday@$&_222",
+	"role": "admin",
+	"avatar": "https://i.imgur.com/yhW6Yw1.jpg"
+}
+```
+
+Response:
+
+```json
+{
+	"id": "086498a6-202f-4d00-9dd6-2601e91baa31",
+	"email": "medaly@gmail.com",
+	"password": "meday@$&_222",
+	"name": "Medaly",
+	"role": "admin",
+	"avatar": "https://i.imgur.com/yhW6Yw1.jpg",
+	"createdAt": "2024-04-06T16:51:08.445Z",
+	"updatedAt": "2024-04-06T16:51:08.445Z"
+}
+```
+
+> Note que la contraseña no está encriptada. La contraseña se encripta automáticamente en el servidor.
+
+## Actualizar un usuario
+
+Puedes actualizar un usuario enviando un objeto como el siguiente y agregando el `id` como parámetro: `/users/{id}`
+
+Request:
+
+```sh
+[PUT] https://localhost:3000/api/users/9c3e6b4a-6c1b-5b58-92b4-32193f7bbfe6
+# Body
+{
+  "name": "Angel",
+  "email": "angel@gmail.com"
+}
+```
+
+Response:
+
+```json
+{
+    "id": "9c3e6b4a-6c1b-5b58-92b4-32193f7bbfe6",
+    "email": "angel@gmail.com",
+    "password": "password321",
+    "name": "Angel",
+    "role": "user",
+    "avatar": "https://i.imgur.com/yhW6Yw1.jpg",
+    "createdAt": "2024-03-06T16:51:08.445Z",
+    "updatedAt": "2024-04-06T16:51:08.445Z"
+}
+```
+
+> Note que no es necesario enviar todos los atributos del usuario, solo envia los atributos que quieras actualizar.
+
+## Verificar Correo Electrónico
+
+Puedes verificar si un correo electrónico ya está registrado en la API.
+
+Request:
+
+```sh
+[POST] https://localhost:3000/api/users/is-available
+# Body
+{
+  "email": "john@mail.com"
+}
+```
+
+Response:
+
+```json
+{
+  "isAvailable": false
+}
+```
+
+Esta característica es muy útil para funciones como mostrar un mensaje en un formulario y verificar el correo electrónico antes de crear un usuario. Por ejemplo:
+
+![Image](src\images\avaliable-email.png)
+
+---
+
+## Modelo de datos
+
+| Atributo   | Tipo     | Descripción                                                            |
+| ---------- | -------- | ---------------------------------------------------------------------- |
+| id         | UUID     | El ID del usuario                                                      |
+| name       | String   | El nombre de usuario                                                   |
+| password   | String   | La contraseña del usuario (esta encriptada dentro de la base de datos) |
+| email      | String   | El correo electrónico del usuario                                      |
+| avatar     | String   | La URL de la imagen de perfil del usuario                              |
+| role       | String   | El rol del usuario (admin o user)                                  |
+| created_at | Datetime | La fecha de creación del usuario                                       |
+| updated_at | Datetime | La fecha de actualización del usuario                                       |
+
+
+* El ID del usuario es un Universal Unique Identifier generado automáticamente por la base de datos.
+* El nombre de usuario debe tener al menos 3 caracteres y no puede contener caracteres especiales.
+* La contraseña debe tener al menos 6 caracteres.
+* El correo electrónico debe ser un correo electrónico válido y no debe estar registrado en la base de datos.
+* La fecha de creación se genera automáticamente cuando se crea el usuario.
+* La URL de la imagen de perfil debe ser una URL válida y debe tener las extensiones png, jpg, o jpeg.
+* El rol del usuario debe ser `admin` o `user`.
