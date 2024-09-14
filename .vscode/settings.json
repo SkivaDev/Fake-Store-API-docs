@@ -4,6 +4,7 @@
         "products",
         "filter-products",
         "categories",
-        "users"
+        "users",
+        "auth"
     ]
 }
