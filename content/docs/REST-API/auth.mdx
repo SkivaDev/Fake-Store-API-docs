@@ -1,6 +1,79 @@
 ---
-title: JWT Auth
+title: Auth with JWT
 ---
 
-## Autenticacion con JWT
-### Contenidos 
+## Autenticacion
+
+Puedes hacer login enviando un objeto como el siguiente a `/auth/login/`
+
+Request:
+
+```sh
+[POST] https://localhost:3000/api/v1/auth/login
+# Body
+{
+  "email": "fabri@gmail.com",
+  "password": "fabri321"
+}
+```
+
+La respuesta es un access y refresh JWT tokens, como este:
+
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwODY0OThhNi0yMDJmLTRkMDAtOWRkNi0yNjAxZTkxYmFhMzEiLCJpYXQiOjE3MjY5NjA0NDQsImV4cCI6MTcyNzA0Njg0NH0.ELjsD6NyZ3gehhLHZHTMVetNNO-XxvGxXzHrmLGK8GQ",
+  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwODY0OThhNi0yMDJmLTRkMDAtOWRkNi0yNjAxZTkxYmFhMzEiLCJpYXQiOjE3MjY5NjA0NDQsImV4cCI6MTcyNzU2NTI0NH0.SYNmSPh_1kA61-EcovPuu6A3Z3xEZ2eSpib-10FRf1Y"
+}
+```
+
+> Nota: El access token es válido por 20 días, y el refresh token es válido por 10 hours.
+
+## Obtener usuario por sesión
+
+Tu puedes obtener el perfil del usuario actual con sesión si en los headers incluye la `Authorization` key con el valor `Bearer {tu access token}` en la ruta `/auth/profile`
+
+Request:
+
+```sh
+[GET] https://localhost:3000/api/v1/auth/profile
+# Headers
+{
+  "Authorization": "Bearer {tu access token}"
+}
+```
+
+Response:
+
+```json
+{
+  "id": 1,
+  "email": "fabri@gmail.com",
+  "password": "fabri123",
+  "name": "Fabrizio",
+  "role": "user",
+  "avatar": "https://cdn-icons-png.freepik.com/512/147/147142.png"
+}
+```
+
+## Obtener un nuevo Access Token por un Refresh Token
+
+Request:
+
+```sh
+[POST] https://localhost:3000/api/v1/auth/refresh-token
+# Body
+{
+  "refreshToken": "{tu refresh token}"
+}
+```
+
+La respuesta tiene un access y un refresh JWT token, como esto:
+
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwODY0OThhNi0yMDJmLTRkMDAtOWRkNi0yNjAxZTkxYmFhMzEiLCJpYXQiOjE3MjY5NjA0NDQsImV4cCI6MTcyNzA0Njg0NH0.ELjsD6NyZ3gehhLHZHTMVetNNO-XxvGxXzHrmLGK8GQ",
+  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwODY0OThhNi0yMDJmLTRkMDAtOWRkNi0yNjAxZTkxYmFhMzEiLCJpYXQiOjE3MjY5NjA0NDQsImV4cCI6MTcyNzU2NTI0NH0.SYNmSPh_1kA61-EcovPuu6A3Z3xEZ2eSpib-10FRf1Y"
+}
+```
+
+> Nota: El access token es válido por 20 días, y el refresh token es válido por 10 hours.
