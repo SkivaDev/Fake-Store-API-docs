@@ -1,0 +1,4 @@
+{
+    "title": "Rest API",
+    "pages": ["products", "filter-products", "categories", "users", "auth"]
+  }
